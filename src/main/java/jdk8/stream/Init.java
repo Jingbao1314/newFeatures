@@ -1,7 +1,7 @@
 package jdk8.stream;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 
 /**
  * @author jijngbao
@@ -10,9 +10,21 @@ import java.util.List;
 public class Init {
     public static void main(String[] args) {
 
-        List<String>strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+
+
+
+
+
+        List<String>strings = Arrays.asList("abcd", "", "bc", "efg", "abcd",
+                "", "jkl");
 // 获取空字符串的数量
-        int count = (int) strings.stream().filter(string -> string.isEmpty()).count();
+        int count = (int) strings.stream().filter(string -> {
+            if(string.length()>0){
+                return true;
+            }else {
+                return false;
+            }
+        }).count();
         System.out.println(count);
 
     }
